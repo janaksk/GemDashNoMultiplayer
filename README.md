@@ -1,8 +1,8 @@
 # READ THIS IF YOUR TRYING TO WORK ON YOUR OWN MACHINE
 
-### The game already has the necessary files for phaser included via phaser.js
+### This is a build of this game I made in a group: https://github.com/janaksk/Info4235Game
 
-### **Phaser does not have an IDE or working environment like a game engine, it is a library.**
+### This is a version with no firebase integration or multiplayer, a strictly local version of the game
 
 You should just be editing the code via VS Code or whatever editor of your choosing.
 
@@ -22,4 +22,3 @@ http://localhost:8000/index.html
 
 ```
 
-## And voila, game should open in browser. Im assuming i dont gotta explain how to connect git but if u confused just ask on the discord
