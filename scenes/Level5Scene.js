@@ -38,6 +38,10 @@ class Level5Scene extends Phaser.Scene {
         // SFX Assets
         this.load.audio('starCollected', 'assets/sfx/star_collected.mp3');
         this.load.audio('jumpSound', 'assets/sfx/jump.mp3');
+
+        // Water Assets
+        this.load.atlas('tiles', 'assets/platformer.png', 'assets/platformer.json');
+        this.load.audio('waterSplash', 'assets/sfx/water_splash.mp3');
     }
 
     create() {
@@ -45,6 +49,15 @@ class Level5Scene extends Phaser.Scene {
         this.add.image(400, 300, 'sky');
         this.add.image(400, 300, 'midground');
         this.platforms = this.physics.add.staticGroup();
+
+        // Water
+        const water = this.physics.add.staticGroup();
+
+        // What Tiles Water
+        for (let i = 3; i < 6; i++)
+        {
+            water.create(i * 128, 600, 'tiles', '17');
+        }
         
         // Floor
         this.platforms.create(150, 553, 'ground');
@@ -132,6 +145,11 @@ class Level5Scene extends Phaser.Scene {
         callback: this.changeRocketSpeeds,
         callbackScope: this,
         loop: true
+        });
+
+        this.physics.add.collider(this.player, water, () => {
+            this.player.setPosition(100, 450)
+            playSoundEffect(this, 'waterSplash', { volume: this.volSFX });
         });
     }
 
